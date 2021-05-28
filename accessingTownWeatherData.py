@@ -10,10 +10,10 @@ import threading
 class CurlWeaData:
 
     # initiate variables
-    def __init__(self, town_id, ):
+    def __init__(self, town_id, target_dir, ):
         # url of weather webpage
         self.url = "http://forecast.weather.com.cn/town/weather1dn/{}.shtml#input".format(town_id)
-        self.file_addr = "/root/Documents/py/accessingWeaData/"
+        self.file_addr = target_dir  # target directory for saving data
         self.page = None  # weather webpage
         self.soup = None  # weather soup
         self.title = None  # waether title
@@ -129,9 +129,14 @@ town_ids = [
     101110101014,  # WenyiRoad, Beilin, Xi'an, Shaanxi
 ]
 
-def start_curling(town_id):
-    run = CurlWeaData(town_id)
+# target directory
+work_dir = "/home/pi/Documents/py/accessingWeaData/"
+
+def start_curling(town_id, work_dir, ):
+    run = CurlWeaData(town_id, work_dir, )
     run.main()
 
 for town_id_i in town_ids:
-    threading.Thread(target = start_curling, args = (town_id_i, )).start()
+    threading.Thread(
+        target = start_curling, args = (town_id_i, work_dir, )
+    ).start()

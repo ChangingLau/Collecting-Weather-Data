@@ -1,4 +1,4 @@
-# **HEIC to JPG Convertor**
+# **Collecting_Weather_Data**
 ## **1. Prerequisite Environment**
 1. **Python** and **Python Libraries**, python can be downloaded from [Python official website](https://www.python.org/); and libraries includes **requests**, **bs4**, **pandas**, and **datetime**, which could be installed by following scripts in **cmd**.
     >`pip install requests -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host mirrors.aliyun.com --user`  
